@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>TalenTrade</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+    <script src="/index.js"></script>
+    <script src="/tag-template.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="#"
+        ><h1 class="site-title">
+          Talen<span style="color: #d73f09; font-weight: 600">Trade</span>
+        </h1></a
+      >
+
+      <nav class="navbar">
+        <ul class="navlist">
+          <li class="navitem navlink"  id="home"><a href="./">Home</a></li>
+          <li class="navitem right-float navlink" id="profile"><a href="./profile">Profile</a></li>
+          <li class="navitem navlink" id="peopleTab"><a href="./people">People</a></li>
+          <li class="navitem navlink right-float">
+            <a href="#" id="login">Guest (login?)</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="create-login-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Welcome to TalenTrade</h3>
+          <button type="button" class="modal-close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="tag-input-element">
+            <label for="email-text-input">Email:</label>
+            <textarea id="email-text-input"></textarea>
+          </div>
+          <div class="tag-input-element">
+            <label for="password-text-input">Password:</label>
+            <textarea id="password-text-input"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button">Create Account</button>
+          <button type="button" class="modal-accept-button">Login</button>
+        </div> 
+        </div>
+     </div>
+
+    {{{body}}}
+  </body>
+</html>

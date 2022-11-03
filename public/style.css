@@ -1,0 +1,314 @@
+body {
+  font-family: Roboto, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #eee;
+}
+
+a {
+  text-decoration: none;
+}
+
+.site-title {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 36px;
+  font-weight: 100;
+  background-color: white;
+  color: black;
+}
+
+.navbar {
+  background-color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.navlist {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+.navitem {
+  display: inline-block;
+  padding: 10px;
+}
+
+
+a {
+  color: #343434;
+}
+
+a:hover,
+a:focus {
+  color: #D73F09;
+}
+
+a:focus {
+  outline: none;
+}
+#create-tag-button {
+  color: #D73F09;
+  background-color: #141212;
+}
+
+#create-tag-button:hover,
+#create-tag-button:focus {
+  color: #141212;
+  background-color: #D73F09;
+}
+
+#create-tag-button:focus {
+  outline: none;
+}
+
+.navlink a {
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+.navlink.active {
+  box-shadow: inset 0 -3px #D73F09;
+}
+
+.right-float {
+  float: right;
+}
+
+.section {
+  width: 100%;
+  margin: 20px;
+  padding: 1em;
+  color: black;
+  min-height: 50vh;
+}
+
+.container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.skill {
+  min-width: 128px;
+  display: inline-block;
+  margin: 2px;
+  padding: 20px;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.person {
+  min-width: 192px;
+  display: inline-block;
+  margin: 2px;
+  padding: 20px;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.searchTitle {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 36px;
+  font-weight: 100;
+  color: black;
+}
+
+.searchBar {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBar input[type=text] {
+  min-width: 400px;
+  min-height: 40px;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 15px;
+  border-width: 1px;
+  border:#141212;
+}
+
+.tagBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tag{
+  margin: 3px;
+  display: flex;
+ 
+  align-content: center;
+  justify-content: center;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  min-width:60px;
+  
+}
+
+.newTag{
+  min-width:60px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  margin: 3px;
+}
+.tagBoxTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 100;
+  color: black;
+}
+.hidden {
+  display: none;
+}
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#create-tag-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+.modal-dialog {
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.modal-close-button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.tag-input-element {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.tag-input-element label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+}
+
+.tag-input-element input,
+.tag-input-element textarea {
+  
+  padding: 8px;
+  font-size: 24px;
+  border: 1px solid #aaa;
+}
+
+.tag-input-element textarea {
+  min-height: 26px;
+  display: inline-block;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 20px 10px;
+}
+
+.modal-footer button {
+  font-size: 20px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.modal-footer .modal-cancel-button:hover {
+  background-color: #eee;
+}
+
+.modal-footer .modal-accept-button {
+  background-color: #D73F09;
+  color: #fff;
+}
+
+.modal-footer .modal-accept-button:hover {
+  background-color: #D73F09;
+}
+
+.error-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.error-container h2 {
+  margin: 10px 0;
+  font-size: 96px;
+  font-weight: 100;
+}
+
+.error-container h3 {
+  margin: 10px 0;
+  font-size: 36px;
+  font-weight: 400;
+}
+.background-orange{
+  background-color:#D73F09;
+}
+
+
+/*everything for the login module*/
+#create-login-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
