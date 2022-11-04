@@ -118,20 +118,61 @@ function handleLoginAcceptClick() {
         for (i = 0; i < data.length; i++) {
           if ((data[i].Email == EmailText) & (data[i].Password == PassText)) {
             showLoggedin(data, i);
+            setActiveUser(data[i]);
           }
         }
       });
     }
   });
-  clearTagInputValues();
+  clearTagInputValues(); //this clears the login module.
   hideCreateLoginModal();
 }
 function showLoggedin(data, index) {
-  document.getElementById("login").innerHTML = data[index].Email;
+  login = document.getElementById("login");
+  login.innerHTML = data[index].Email;
+  login.removeEventListener("click", showLoginModule);
+  //login.addEventListener("click", showLogoutModule);
 }
-
+function setActiveUser(data) {
+  fetch("/index/setActiveUser", {
+    method: "POST",
+    body: JSON.stringify({
+      personName: data.personName,
+      Specialty: data.Specialty,
+      Tags: data.tags,
+      Bio: data.Bio,
+      Email: data.Email,
+      Password: data.Password,
+      Id: data.ID,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
+    if (res.ok) {
+      console.log("active user declared");
+    }
+  });
+}
+function logInCheck() {
+  fetch("/index/activeUser", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        if (data[0]) {
+          showLoggedin(data, 0);
+        }
+      });
+    }
+  });
+}
 window.addEventListener("DOMContentLoaded", function () {
   tagListeners();
+  logInCheck();
   //login module
   var login = document.getElementById("login");
   if (login) {

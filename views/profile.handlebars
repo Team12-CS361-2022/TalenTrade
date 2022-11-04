@@ -1,5 +1,17 @@
 <script>
     document.getElementById("profile").classList.add("active")
 </script>
-<div>This will be where your profile is stored and can be edited</div>
+{{#unless activeUsers}}
+<div class="searchTitle">You are not logged in.</div>
+{{/unless}}
+<div>
+    {{#each activeUsers}}
+<ul>
+    <li class="profileitem">Name: {{personName}}</li>
+    <li class="profileitem">Specialty: {{Specialty}}</li>
+   <li class="profileitem">Tags: {{Tags}}</li>
+   <li class="profileitem">Bio: {{Bio}}</li>
+</ul>
+{{/each}}
+</div>
     
