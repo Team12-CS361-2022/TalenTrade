@@ -3,15 +3,15 @@
 //This function creates the html for a new tag and inserts it at the start of the tag box
 
 function insertnewTag(Title) {
-  var numTags = document.getElementsByClassName("tag").length;
+  //var numTags = document.getElementsByClassName("tag").length;
   var newTag = {
-    Id: numTags,
+    Id: Title,
     Title: Title,
   };
   var tagBox = document.getElementById("tagBox");
   var newTagHTML = Handlebars.templates.tag(newTag);
   tagBox.insertAdjacentHTML("afterbegin", newTagHTML);
-  var x = document.getElementById(numTags);
+  var x = document.getElementById(Title);
   x.addEventListener("click", tagClick);
 }
 //This should unhide the tag suggestion box when the button is clicked.
@@ -76,16 +76,39 @@ function handleModalAcceptClick() {
 function tagClick() {
   if (this.classList.contains("background-orange")) {
     this.classList.remove("background-orange");
+    tagClear();
   } else {
     this.classList.add("background-orange");
+    tagSearch(this);
   }
 }
+
+//resets the skills on screen when you unselect a tag
+function tagClear(){
+  let skillCollection = document.getElementsByClassName("skill")
+  for(let i = 0; i < skillCollection.length; i++){
+    skillCollection[i].classList.remove('hidden');
+  }
+}
+
+//handles the displaying of tags based on the clicked tag
+function tagSearch(tagClicked){
+  let skillCollection = document.getElementsByClassName("skill")
+  for(let i = 0; i < skillCollection.length; i++){
+    if(skillCollection[i].id == tagClicked.id){
+      skillCollection[i].classList.remove('hidden');
+    }else{
+      skillCollection[i].classList.add('hidden');
+    }
+  }
+}
+
 //adds event listners to preexisting tags
+//Redid this to add event listeners without using the individual ids of each tag
 function tagListeners() {
-  var numTags = document.getElementsByClassName("tag").length;
-  for (i = 0; i < numTags; i++) {
-    var x = document.getElementById(i);
-    x.addEventListener("click", tagClick);
+  var tags = document.getElementsByClassName("tag");
+  for (i = 0; i < tags.length; i++) {
+    tags[i].addEventListener("click", tagClick);
   }
 }
 
@@ -170,12 +193,40 @@ function logInCheck() {
     }
   });
 }
+
+function searchSkill() {
+  let userInput = document.getElementById("skillSearch").value;
+  userInput = userInput.toLowerCase();
+  let skillCollection = document.getElementsByClassName("skill")
+  let selectedTag = document.getElementsByClassName('tag background-orange');
+  
+  for(let i = 0; i < skillCollection.length; i++){
+    let compare = skillCollection[i].textContent;
+    
+    if(selectedTag){
+      if(compare.toLowerCase().includes(userInput) && skillCollection[i].id.includes(selectedTag[0].id)){
+        skillCollection[i].classList.remove('hidden');
+      }else{
+        skillCollection[i].classList.add('hidden');
+      } 
+    }else{
+      if(compare.toLowerCase().includes(userInput)){
+        skillCollection[i].classList.remove('hidden');
+      }else{
+        skillCollection[i].classList.add('hidden');
+      } 
+    }
+ 
+  }
+}
+
 window.addEventListener("DOMContentLoaded", function () {
   tagListeners();
   logInCheck();
   //login module
   var login = document.getElementById("login");
   if (login) {
+    console.log(login)
     login.addEventListener("click", showLoginModule);
   }
   var loginCloseButton = document.querySelector(
@@ -189,6 +240,12 @@ window.addEventListener("DOMContentLoaded", function () {
   );
   if (loginAcceptButton) {
     loginAcceptButton.addEventListener("click", handleLoginAcceptClick);
+  }
+
+  //searchbar
+  var searchbar = document.getElementById("skillSearch");
+  if(searchbar){
+    searchbar.addEventListener('input', searchSkill);
   }
 
   //tag modal create button
@@ -218,3 +275,7 @@ window.addEventListener("DOMContentLoaded", function () {
     modalAcceptButton.addEventListener("click", handleModalAcceptClick);
   }
 });
+
+
+
+
