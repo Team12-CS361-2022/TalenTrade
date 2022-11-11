@@ -1,7 +1,6 @@
 //Kyle Thom
-
+const tagArray = [];
 //This function creates the html for a new tag and inserts it at the start of the tag box
-
 function insertnewTag(Title) {
   //var numTags = document.getElementsByClassName("tag").length;
   var newTag = {
@@ -51,11 +50,10 @@ function handleModalAcceptClick() {
     return;
   }
   if (tagText && tagText.length < 6) {
-    var numTags = document.getElementsByClassName("tag").length;
     fetch("/index/addTags", {
       method: "POST",
       body: JSON.stringify({
-        Id: numTags,
+        Id: tagText,
         Title: tagText,
       }),
       headers: {
@@ -72,32 +70,42 @@ function handleModalAcceptClick() {
     alert("You can only use 5 characters!");
   }
 }
+
 //handles the tag being clicked
 function tagClick() {
   if (this.classList.contains("background-orange")) {
     this.classList.remove("background-orange");
+    // for(let i = 0; i < tagArray.length; i++){
+    //   if(tagArray[i].id === this.id){
+    //     tagArray = tagArray.splice(tagArray.indexOf(this.id));
+    //   }
+    // }
     tagClear();
   } else {
     this.classList.add("background-orange");
+    tagArray.push(this);
     tagSearch(this);
   }
+  console.log(tagArray);
 }
 
+//Ethan Hardey
 //resets the skills on screen when you unselect a tag
-function tagClear(){
+function tagClear() {
   let skillCollection = document.getElementsByClassName("skill")
-  for(let i = 0; i < skillCollection.length; i++){
+  for (let i = 0; i < skillCollection.length; i++) {
     skillCollection[i].classList.remove('hidden');
   }
 }
 
+//Ethan Hardey
 //handles the displaying of tags based on the clicked tag
-function tagSearch(tagClicked){
+function tagSearch(tagClicked) {
   let skillCollection = document.getElementsByClassName("skill")
-  for(let i = 0; i < skillCollection.length; i++){
-    if(skillCollection[i].id == tagClicked.id){
+  for (let i = 0; i < skillCollection.length; i++) {
+    if (skillCollection[i].id == tagClicked.id) {
       skillCollection[i].classList.remove('hidden');
-    }else{
+    } else {
       skillCollection[i].classList.add('hidden');
     }
   }
@@ -194,29 +202,31 @@ function logInCheck() {
   });
 }
 
+
+//Ethan Hardey
 function searchSkill() {
   let userInput = document.getElementById("skillSearch").value;
   userInput = userInput.toLowerCase();
   let skillCollection = document.getElementsByClassName("skill")
   let selectedTag = document.getElementsByClassName('tag background-orange');
-  
-  for(let i = 0; i < skillCollection.length; i++){
+
+  for (let i = 0; i < skillCollection.length; i++) {
     let compare = skillCollection[i].textContent;
     
-    if(selectedTag){
-      if(compare.toLowerCase().includes(userInput) && skillCollection[i].id.includes(selectedTag[0].id)){
+    if (selectedTag[0]) {
+      if (compare.toLowerCase().includes(userInput) && skillCollection[i].id.includes(selectedTag[0].id)) {
         skillCollection[i].classList.remove('hidden');
-      }else{
+      } else {
         skillCollection[i].classList.add('hidden');
-      } 
-    }else{
-      if(compare.toLowerCase().includes(userInput)){
+      }
+    } else {
+      if (compare.toLowerCase().includes(userInput)) {
         skillCollection[i].classList.remove('hidden');
-      }else{
+      } else {
         skillCollection[i].classList.add('hidden');
-      } 
+      }
     }
- 
+
   }
 }
 
@@ -244,7 +254,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   //searchbar
   var searchbar = document.getElementById("skillSearch");
-  if(searchbar){
+  if (searchbar) {
     searchbar.addEventListener('input', searchSkill);
   }
 
