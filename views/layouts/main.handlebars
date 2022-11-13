@@ -6,6 +6,7 @@
     <title>TalenTrade</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+
     <script src="/index.js"></script>
     <script src="/tag-template.js"></script>
   </head>
@@ -23,6 +24,7 @@
           <li class="navitem navlink"  id="home"><a href="./">Home</a></li>
           <li class="navitem right-float navlink" id="profile"><a href="./profile">Profile</a></li>
           <li class="navitem navlink" id="peopleTab"><a href="./people">People</a></li>
+          <li class="navitem navlink" id="emailTab"><a href="#">Email</a></li>
           <li class="navitem navlink right-float">
             <a href="#" id="login">Login</a>
           </li>
@@ -55,8 +57,38 @@
           <button type="button" class="modal-cancel-button">Create Account</button>
           <button type="button" class="modal-accept-button">Login</button>
         </div> 
+      </div>
+    </div>
+    <div id="create-email-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Formulate Your Message</h3>
+          <button type="button" class="modal-close-button">&times;</button>
         </div>
-     </div>
+
+        <div class="modal-body">
+          <div class="tag-input-element">
+            <label for="recipient-text-input">Recipient:</label>
+            <input id="recipient-text-input"></input>
+          </div>
+          <div class="tag-input-element">
+            <label for="subject-text-input">Subject:</label>
+            <input id="subject-text-input"></input>
+          </div>
+          <div class="tag-input-element">
+            <label for="body-text-input">Body:</label>
+            <input id="body-text-input"></input>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button">Send</button>
+        </div> 
+      </div>
+    </div>
+    
+
 
     {{{body}}}
   </body>

@@ -23,6 +23,7 @@ async function listDatabases(client) {
   });
 }
 */
+const nodemailer = require("nodemailer");
 var fs = require("fs");
 var path = require("path");
 var express = require("express");

@@ -1,3 +1,4 @@
+const nodemailer = require("nodemailer");
 //Kyle Thom
 const tagArray = [];
 //This function creates the html for a new tag and inserts it at the start of the tag box
@@ -168,6 +169,59 @@ function tagListeners() {
   }
 }
 
+//email functions
+
+function showEmailModule() {
+  console.log("Bruh");
+  var modalBackdrop = document.getElementById("modal-backdrop");
+  var createLoginModal = document.getElementById("create-email-modal");
+  modalBackdrop.classList.remove("hidden");
+  createLoginModal.classList.remove("hidden");
+}
+
+function hideEmailModal() {
+  var modalBackdrop = document.getElementById("modal-backdrop");
+  var createLoginModal = document.getElementById("create-email-modal");
+  modalBackdrop.classList.add("hidden");
+  createLoginModal.classList.add("hidden");
+  clearTagInputValues();
+}
+
+async function handleEmailSendClick(){
+  //const nodemailer = require("nodemailer");
+
+  var EmailToSendText = document.getElementById("recipient-text-input").value;
+  var EmailSubjectText = document.getElementById("subject-text-input").value;
+  var EmailBodyText = document.getElementById("body-text-input").value;
+
+  
+  let testAccount = await nodemailer.createTestAccount();
+  let transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass, 
+    },
+  });
+
+  let info = await transporter.sendMail({
+    from: '"My mom" <IanBackus44@gmail.com>', // sender address
+    to: EmailToSendText, // list of receivers
+    subject: EmailSubjectText, // Subject line
+    text: EmailBodyText, // plain text body
+  })
+
+
+  modalBackdrop.classList.add("hidden");
+  createLoginModal.classList.add("hidden");
+  clearTagInputValues();
+}
+
+//email functions end
+
+
 function showLoginModule() {
   var modalBackdrop = document.getElementById("modal-backdrop");
   var createLoginModal = document.getElementById("create-login-modal");
@@ -273,6 +327,27 @@ window.addEventListener("DOMContentLoaded", function () {
   if (loginAcceptButton) {
     loginAcceptButton.addEventListener("click", handleLoginAcceptClick);
   }
+
+  //email modal
+  var makeEmail = document.getElementById("emailTab");
+  if(makeEmail){
+    makeEmail.addEventListener("click", showEmailModule);
+  }
+  var emailCancelButton = document.querySelector(
+    "#create-email-modal .modal-close-button"
+  );
+  if (emailCancelButton) {
+    emailCancelButton.addEventListener("click", hideEmailModal);
+  }
+  var emailSendButton = document.querySelector(
+    "#create-email-modal .modal-cancel-button"
+  );
+  if (emailCancelButton) {
+    emailCancelButton.addEventListener("click", handleEmailSendClick);
+  }
+
+
+
 
   //searchbar
   var searchbar = document.getElementById("skillSearch");
