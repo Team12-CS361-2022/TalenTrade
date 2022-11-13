@@ -71,28 +71,37 @@ function handleModalAcceptClick() {
   }
 }
 
+//Ethan Hardey
 //handles the tag being clicked
 function tagClick() {
   if (this.classList.contains("background-orange")) {
     this.classList.remove("background-orange");
-    // for(let i = 0; i < tagArray.length; i++){
-    //   if(tagArray[i].id === this.id){
-    //     tagArray = tagArray.splice(tagArray.indexOf(this.id));
-    //   }
-    // }
-    tagClear();
+    for (let i = 0; i < tagArray.length; i++) {
+      if (tagArray[i].id === this.id) {
+        tagArray.splice(i, 1);
+      }
+    }
+    tagClear(this);
   } else {
     this.classList.add("background-orange");
     tagArray.push(this);
-    tagSearch(this);
+    tagSearch();
   }
-  console.log(tagArray);
 }
 
 //Ethan Hardey
 //resets the skills on screen when you unselect a tag
-function tagClear() {
+function tagClear(tagClicked) {
   let skillCollection = document.getElementsByClassName("skill")
+  for (let i = 0; i < skillCollection.length; i++) {
+    for (let k = 0; k < tagArray.length; k++) {
+      if (skillCollection[i].id === tagClicked.id && tagArray[k].id != tagClicked.id) {
+        skillCollection[i].classList.add('hidden');
+        return;
+      }
+    }
+  }
+
   for (let i = 0; i < skillCollection.length; i++) {
     skillCollection[i].classList.remove('hidden');
   }
@@ -100,14 +109,53 @@ function tagClear() {
 
 //Ethan Hardey
 //handles the displaying of tags based on the clicked tag
-function tagSearch(tagClicked) {
+function tagSearch() {
   let skillCollection = document.getElementsByClassName("skill")
   for (let i = 0; i < skillCollection.length; i++) {
-    if (skillCollection[i].id == tagClicked.id) {
-      skillCollection[i].classList.remove('hidden');
-    } else {
-      skillCollection[i].classList.add('hidden');
+    skillCollection[i].classList.add('hidden');
+    for (let k = 0; k < tagArray.length; k++) {
+      if (skillCollection[i].id == tagArray[k].id) {
+        skillCollection[i].classList.remove('hidden');
+      }
     }
+  }
+}
+
+//Ethan Hardey
+//This function is used for live searching the database.
+function searchSkill() {
+  let userInput = document.getElementById("skillSearch").value;
+  userInput = userInput.toLowerCase();
+  let skillCollection = document.getElementsByClassName("skill")
+  let activeArray = []
+
+  if (tagArray.length > 0) {
+    for (let i = 0; i < skillCollection.length; i++) {
+      for (let k = 0; k < tagArray.length; k++) {
+        if (skillCollection[i].id === tagArray[k].id) {
+          if (!activeArray.includes(skillCollection[i])) {
+            activeArray.push(skillCollection[i]);
+          }
+        }
+      }
+    }
+
+    for (let i = 0; i < activeArray.length; i++) {
+      if (activeArray[i].textContent.toLowerCase().includes(userInput)) {
+        activeArray[i].classList.remove('hidden');
+      } else {
+        activeArray[i].classList.add('hidden');
+      }
+    }
+  } else {
+    for (let i = 0; i < skillCollection.length; i++) {
+      if (skillCollection[i].textContent.toLowerCase().includes(userInput)) {
+        skillCollection[i].classList.remove('hidden');
+      } else {
+        skillCollection[i].classList.add('hidden');
+      }
+    }
+
   }
 }
 
@@ -158,12 +206,14 @@ function handleLoginAcceptClick() {
   clearTagInputValues(); //this clears the login module.
   hideCreateLoginModal();
 }
+
 function showLoggedin(data, index) {
   login = document.getElementById("login");
   login.innerHTML = data[index].Email;
   login.removeEventListener("click", showLoginModule);
   //login.addEventListener("click", showLogoutModule);
 }
+
 function setActiveUser(data) {
   fetch("/index/setActiveUser", {
     method: "POST",
@@ -185,6 +235,7 @@ function setActiveUser(data) {
     }
   });
 }
+
 function logInCheck() {
   fetch("/index/activeUser", {
     method: "POST",
@@ -202,41 +253,12 @@ function logInCheck() {
   });
 }
 
-
-//Ethan Hardey
-function searchSkill() {
-  let userInput = document.getElementById("skillSearch").value;
-  userInput = userInput.toLowerCase();
-  let skillCollection = document.getElementsByClassName("skill")
-  let selectedTag = document.getElementsByClassName('tag background-orange');
-
-  for (let i = 0; i < skillCollection.length; i++) {
-    let compare = skillCollection[i].textContent;
-    
-    if (selectedTag[0]) {
-      if (compare.toLowerCase().includes(userInput) && skillCollection[i].id.includes(selectedTag[0].id)) {
-        skillCollection[i].classList.remove('hidden');
-      } else {
-        skillCollection[i].classList.add('hidden');
-      }
-    } else {
-      if (compare.toLowerCase().includes(userInput)) {
-        skillCollection[i].classList.remove('hidden');
-      } else {
-        skillCollection[i].classList.add('hidden');
-      }
-    }
-
-  }
-}
-
 window.addEventListener("DOMContentLoaded", function () {
   tagListeners();
   logInCheck();
   //login module
   var login = document.getElementById("login");
   if (login) {
-    console.log(login)
     login.addEventListener("click", showLoginModule);
   }
   var loginCloseButton = document.querySelector(
