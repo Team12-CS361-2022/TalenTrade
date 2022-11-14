@@ -1,22 +1,42 @@
 [
     {
         "Id": "CS361",
-        "Title": "CS361"
+        "Title": "CS361 / Software Engineering"
     },
     {
         "Id": "CS290",
-        "Title": "CS290"
+        "Title": "CS290 / Web Development"
     },
     {
         "Id": "CS261",
-        "Title": "CS261"
+        "Title": "CS261 / Data Structures"
+    },
+    {
+        "Id": "CS340",
+        "Title": "CS340 / Databases"
+    },
+    {
+        "Id": "ECE271",
+        "Title": "ECE271 / Digital Logic Design"
     },
     {
         "Id": "HTML",
         "Title": "HTML"
     },
     {
-        "Id": "C++",
+        "Id": "CSS",
+        "Title": "CSS"
+    },
+    {
+        "Id": "C++"",
         "Title": "C++"
+    },
+    {
+        "Id": "JS",
+        "Title": "JavaScript"
+    },
+    {
+        "Id": "Python",
+        "Title": "Python"
     }
 ]
