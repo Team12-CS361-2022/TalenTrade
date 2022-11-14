@@ -1,52 +1,52 @@
 [
     {
-        "id": "CS361",
-        "title": "CS361 / Software Engineering",
-        "hits": 37
+        "Id": "CS361",
+        "Title": "CS361",
+        "Hits":37
     },
     {
-        "id": "CS290",
-        "title": "CS290 / Web Development",
-        "hits": 78
+        "Id": "CS290",
+        "Title": "CS290",
+        "Hits":78
     },
     {
-        "id": "CS261",
-        "title": "CS261 / Data Structures",
-        "hits": 124
+        "Id": "CS261",
+        "Title": "CS261,
+        "Hits":124
     },
     {
-        "id": "CS340",
-        "title": "CS340 / Databases",
-        "hits": 13
+        "Id": "CS340",
+        "Title": "CS340",
+        "Hits":13
     },
     {
-        "id": "ECE271",
-        "title": "ECE271 / Digital Logic Design",
-        "hits": 96
+        "Id": "ECE271",
+        "Title": "ECE271",
+        "Hits":96
     },
     {
-        "id": "HTML",
-        "title": "HTML",
-        "hits": 45
+        "Id": "HTML",
+        "Title": "HTML",
+        "Hits":45
     },
     {
-        "id": "CSS",
-        "title": "CSS",
-        "hits": 34
+        "Id": "CSS",
+        "Title": "CSS",
+        "Hits":34
     },
     {
-        "id": "C++"",
-        "title": "C++",
-        "hits": 56
+        "Id": "C++",
+        "Title": "C++",
+        "Hits":56
     },
     {
-        "id": "JS",
-        "title": "JavaScript",
-        "hits": 73
+        "Id": "JS",
+        "Title": "JavaScript",
+        "Hits":73
     },
     {
-        "id": "Python",
-        "title": "Python",
-        "hits": 67
+        "Id": "Python",
+        "Title": "Python",
+        "Hits":67
     }
 ]
