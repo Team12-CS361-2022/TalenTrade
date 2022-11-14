@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+//const nodemailer = require("nodemailer");
 //Kyle Thom
 const tagArray = [];
 //This function creates the html for a new tag and inserts it at the start of the tag box
@@ -169,6 +169,7 @@ function tagListeners() {
   }
 }
 
+//Ian Backus
 //email functions
 
 function showEmailModule() {
@@ -187,36 +188,30 @@ function hideEmailModal() {
   clearTagInputValues();
 }
 
-async function handleEmailSendClick(){
+function handleEmailSendClick(){
   //const nodemailer = require("nodemailer");
-
+  
   var EmailToSendText = document.getElementById("recipient-text-input").value;
   var EmailSubjectText = document.getElementById("subject-text-input").value;
   var EmailBodyText = document.getElementById("body-text-input").value;
 
-  
-  let testAccount = await nodemailer.createTestAccount();
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass, 
+
+  fetch("/index/createEmail", {
+    method: "POST",
+    body: JSON.stringify({
+      Recipient: EmailToSendText,
+      Subject: EmailSubjectText,
+      Body: EmailBodyText,
+    }),
+    headers:{
+      "Content-Type": "application/json",
     },
+  }).then((res) => {
+    if (res.ok) {
+      console.log("email sending success (recipient could still be invalid)");
+    }
   });
 
-  let info = await transporter.sendMail({
-    from: '"My mom" <IanBackus44@gmail.com>', // sender address
-    to: EmailToSendText, // list of receivers
-    subject: EmailSubjectText, // Subject line
-    text: EmailBodyText, // plain text body
-  })
-
-
-  modalBackdrop.classList.add("hidden");
-  createLoginModal.classList.add("hidden");
-  clearTagInputValues();
 }
 
 //email functions end
@@ -342,8 +337,8 @@ window.addEventListener("DOMContentLoaded", function () {
   var emailSendButton = document.querySelector(
     "#create-email-modal .modal-cancel-button"
   );
-  if (emailCancelButton) {
-    emailCancelButton.addEventListener("click", handleEmailSendClick);
+  if (emailSendButton) {
+    emailSendButton.addEventListener("click", handleEmailSendClick);
   }
 
 

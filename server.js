@@ -32,6 +32,7 @@ var tagData = require("./tagData.json");
 var activeUser = require("./activeUser.json");
 var peopleData = require("./peopleData.json");
 const bodyParser = require("body-parser");
+const { debug } = require("console");
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -43,12 +44,14 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res, next) {
   console.log(tagData);
+  //console.log("Hello");
 
   res.status(200).render("index", {
     tags: tagData,
   });
 });
 app.get("/people", function (req, res) {
+  //console.log("Hello");
   res.status(200).render("people", {
     persons: peopleData,
   });
@@ -64,6 +67,8 @@ app.get("*", function (req, res) {
 });
 app.post("/index/addTags", (req, res) => {
   var tag;
+
+  console.log("In tag adder");
 
   if (req.body && req.body.Title) {
     tag = req.body.Title;
@@ -87,6 +92,45 @@ app.post("/index/addTags", (req, res) => {
       singleTag: req.body,
     });
   }
+});
+app.post("/index/createEmail", (req, res) => {
+  var Rec;
+  var Sub;
+  var Bod;
+
+
+  if(req.body){
+    Rec = req.body.Recipient;
+    Sub = req.body.Subject;
+    Bod = req.body.Body;
+
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: 'smtp-mail.outlook.com',
+      auth: {
+          user: 'TalenTrade@outlook.com',
+          pass: 'DrDeAmicisMoment'
+      }
+    });
+
+    // send mail with defined transport object
+    transporter.sendMail({
+      from: 'TalenTrade <TalenTrade@outlook.com>', // sender address
+      //to: 'Ianbackus44@gmail.com',
+      //subject: "Sup",
+      //text: "https://tenor.com/view/no-bitches-bitches-spongebob-meme-gif-24652884",
+      to: Rec, // list of receivers
+      subject: Sub, // Subject line
+      text: Bod, // plain text body
+    });
+
+    res.status(200).render("index", {
+      tags: tagData,
+    })
+  }
+
+
 });
 app.post("/index/peopleData", (req, res) => {
   res.status(200).json(peopleData);

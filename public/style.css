@@ -346,3 +346,14 @@ a:focus {
     display: block;
     padding: 10px;
 }
+
+/*For the email modal*/
+#create-email-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
