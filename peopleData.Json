@@ -63,9 +63,9 @@
         "personName":"Steve Jobs",
         "Specialty": "Electrical Engineering",
         "Tags":"ECE271",
-        "Bio":"Money is the ultimate source of joy.",
-        "Email":"eeee@lise.com",
-        "Password":"MONEYmoney",
+        "Bio":"Founder of Apple. Reimagining the computer.",
+        "Email":"steve@apple.com",
+        "Password":"iphone",
         "Id":506
 
     },

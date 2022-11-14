@@ -116,7 +116,7 @@ a:focus {
 .person {
   min-width: 192px;
   display: inline-block;
-  margin: 2px;
+  margin: 10px;
   padding: 20px;
   border: 2px solid #202020;
   border-radius: 10px;
