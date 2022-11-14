@@ -1,38 +1,51 @@
 [
     {
-        "Id": "CS361",
-        "Title": "CS361"
+        "id": "CS361",
+        "title": "CS361 / Software Engineering",
+        "hits": 37
     },
     {
-        "Id": "CS290",
-        "Title": "CS290"
+        "id": "CS290",
+        "title": "CS290 / Web Development",
+        "hits": 78
     },
     {
-        "Id": "CS261",
-        "Title": "CS261"
+        "id": "CS261",
+        "title": "CS261 / Data Structures",
+        "hits": 124
     },
     {
-        "Id": "HTML",
-        "Title": "HTML"
+        "id": "CS340",
+        "title": "CS340 / Databases",
+        "hits": 13
+    },
+    {
+        "id": "ECE271",
+        "title": "ECE271 / Digital Logic Design",
+        "hits": 96
+    },
+    {
+        "id": "HTML",
+        "title": "HTML",
+        "hits": 45
+    },
+    {
+        "id": "CSS",
+        "title": "CSS",
+        "hits": 34
+    },
+    {
+        "id": "C++"",
+        "title": "C++",
+        "hits": 56
+    },
+    {
+        "id": "JS",
+        "title": "JavaScript",
+        "hits": 73
     },
     {
         "Id": "C++",
         "Title": "C++"
-    },
-    {
-        "Id": "TTTag",
-        "Title": "TTTag"
-    },
-    {
-        "Id": "erf",
-        "Title": "erf"
-    },
-    {
-        "Id": "345",
-        "Title": "345"
-    },
-    {
-        "Id": "3457",
-        "Title": "3457"
     }
 ]
