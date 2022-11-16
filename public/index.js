@@ -173,7 +173,6 @@ function tagListeners() {
 //email functions
 
 function showEmailModule() {
-  console.log("Bruh");
   var modalBackdrop = document.getElementById("modal-backdrop");
   var createLoginModal = document.getElementById("create-email-modal");
   modalBackdrop.classList.remove("hidden");
@@ -195,23 +194,27 @@ function handleEmailSendClick(){
   var EmailSubjectText = document.getElementById("subject-text-input").value;
   var EmailBodyText = document.getElementById("body-text-input").value;
 
+  if(EmailToSendText && EmailBodyText && EmailSubjectText){
+    fetch("/index/createEmail", {
+      method: "POST",
+      body: JSON.stringify({
+        Recipient: EmailToSendText,
+        Subject: EmailSubjectText,
+        Body: EmailBodyText,
+      }),
+      headers:{
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        console.log("email sending success (recipient could still be invalid)");
+      }
+    });
+  }else{
+    alert("Please fill out all fields");
+  }
 
-  fetch("/index/createEmail", {
-    method: "POST",
-    body: JSON.stringify({
-      Recipient: EmailToSendText,
-      Subject: EmailSubjectText,
-      Body: EmailBodyText,
-    }),
-    headers:{
-      "Content-Type": "application/json",
-    },
-  }).then((res) => {
-    if (res.ok) {
-      console.log("email sending success (recipient could still be invalid)");
-    }
-  });
-
+  hideEmailModal();
 }
 
 //email functions end

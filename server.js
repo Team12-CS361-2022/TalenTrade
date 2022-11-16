@@ -117,9 +117,6 @@ app.post("/index/createEmail", (req, res) => {
     // send mail with defined transport object
     transporter.sendMail({
       from: 'TalenTrade <TalenTrade@outlook.com>', // sender address
-      //to: 'Ianbackus44@gmail.com',
-      //subject: "Sup",
-      //text: "https://tenor.com/view/no-bitches-bitches-spongebob-meme-gif-24652884",
       to: Rec, // list of receivers
       subject: Sub, // Subject line
       text: Bod, // plain text body
