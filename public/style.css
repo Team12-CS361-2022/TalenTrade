@@ -369,3 +369,36 @@ a:focus {
   z-index: 1010;
   overflow: scroll;
 }
+
+/*account creation*/
+.create-account-button {
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #D73F09;
+  margin-right: 3rem;
+}
+
+.logged-out-options {
+  text-align: center;
+  margin: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-accept-button {
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #D73F09;
+  margin-left: 3rem;
+}
+
+.create-account-button:hover{
+  color: white;
+}
+
+.modal-accept-button:hover{
+  color:white;
+}
