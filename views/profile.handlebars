@@ -3,6 +3,10 @@
 </script>
 {{#unless activeUsers}}
 <div class="searchTitle">You are not logged in.</div>
+<div class="logged-out-options">
+    <button type="button" class="create-account-button">Create Account</button>
+    <button type="button" class="modal-accept-button">Login</button>
+</div>
 {{/unless}}
 <div class="profileinfo">
     {{#each activeUsers}}
