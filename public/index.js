@@ -115,7 +115,8 @@ function tagSearch() {
   for (let i = 0; i < skillCollection.length; i++) {
     skillCollection[i].classList.add('hidden');
     for (let k = 0; k < tagArray.length; k++) {
-      if (skillCollection[i].id == tagArray[k].id) {
+      let goofyAhString = JSON.stringify(skillCollection[i].id)
+      if(goofyAhString.includes(tagArray[k].id)) {
         skillCollection[i].classList.remove('hidden');
       }
     }
@@ -343,9 +344,6 @@ window.addEventListener("DOMContentLoaded", function () {
   if (emailSendButton) {
     emailSendButton.addEventListener("click", handleEmailSendClick);
   }
-
-
-
 
   //searchbar
   var searchbar = document.getElementById("skillSearch");
