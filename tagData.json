@@ -57,21 +57,21 @@
     {
         "Id": "Tutor",
         "Title": "Tutor",
-        "Hits": 343   
+        "Hits": 343
     },
     {
-        "Id": "Seek Help",
-        "Title": "HelpSeek",
-        "Hits": 343   
+        "Id": "HelpSeek",
+        "Title": "Seek Help",
+        "Hits": 343
     },
     {
         "Id": "SeekOpps",
-        "Title": "OpportunitySeek",
-        "Hits": 343   
+        "Title": "Seek Opportunity",
+        "Hits": 343
     },
     {
         "Id": "Opps",
         "Title": "Opportunities",
-        "Hits": 343   
+        "Hits": 343
     }
 ]
