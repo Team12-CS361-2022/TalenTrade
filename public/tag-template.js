@@ -12,6 +12,6 @@ templates['tag'] = template({"compiler":[8,">= 4.3.0"],"main":function(container
     + alias4(((helper = (helper = lookupProperty(helpers,"Id") || (depth0 != null ? lookupProperty(depth0,"Id") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Id","hash":{},"data":data,"loc":{"start":{"line":1,"column":20},"end":{"line":1,"column":26}}}) : helper)))
     + ">"
     + alias4(((helper = (helper = lookupProperty(helpers,"Title") || (depth0 != null ? lookupProperty(depth0,"Title") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"Title","hash":{},"data":data,"loc":{"start":{"line":1,"column":27},"end":{"line":1,"column":36}}}) : helper)))
-    + "</div>";
+    + "</div>\r\n";
 },"useData":true});
 })();

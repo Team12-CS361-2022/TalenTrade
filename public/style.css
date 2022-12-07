@@ -47,6 +47,10 @@ a:focus {
   color: #D73F09;
 }
 
+.skill-link article:hover{
+  color: #D73F09;
+}
+
 a:focus {
   outline: none;
 }

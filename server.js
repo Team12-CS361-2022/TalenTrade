@@ -26,13 +26,16 @@ async function listDatabases(client) {
 const nodemailer = require("nodemailer");
 var fs = require("fs");
 var path = require("path");
+var handlebars = require('handlebars');
 var express = require("express");
 var exphbs = require("express-handlebars");
 var tagData = require("./tagData.json");
 var activeUser = require("./activeUser.json");
 var peopleData = require("./peopleData.json");
+var posts = require("./posts.json");
 const bodyParser = require("body-parser");
 const { debug } = require("console");
+var people = require('./peopleData.json');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -42,20 +45,25 @@ app.set("view engine", "handlebars");
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.get("/", function (req, res, next) {
-  console.log(tagData);
-  //console.log("Hello");
+handlebars.registerHelper("invert", (value, options) => {
+  return (posts.postArray.length - parseInt(value))
+})
 
+app.get("/", function (req, res, next) {
   res.status(200).render("index", {
+    skills: posts.postArray,
     tags: tagData,
+    peoples: people.peopleData,
   });
 });
+
 app.get("/people", function (req, res) {
   //console.log("Hello");
   res.status(200).render("people", {
     persons: peopleData,
   });
 });
+
 app.get("/profile", function (req, res) {
   console.log(activeUser);
   res.status(200).render("profile", {
@@ -93,6 +101,7 @@ app.post("/index/addTags", (req, res) => {
     });
   }
 });
+
 app.post("/index/createEmail", (req, res) => {
   var Rec;
   var Sub;
@@ -129,9 +138,11 @@ app.post("/index/createEmail", (req, res) => {
 
 
 });
+
 app.post("/index/peopleData", (req, res) => {
   res.status(200).json(peopleData);
 });
+
 app.post("/index/setActiveUser", (req, res) => {
   if (req.body) {
     fs.readFile(

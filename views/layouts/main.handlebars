@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>TalenTrade</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/style.css" media="screen">
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
 
     <script src="/index.js"></script>
     <script src="/tag-template.js"></script>
+    <script src="/skill-template.js"></script>
   </head>
 
   <body class="gradient_bg">
@@ -24,7 +25,6 @@
           <li class="navitem navlink"  id="home"><a href="./">Home</a></li>
           <li class="navitem right-float navlink" id="profile"><a href="./profile">Profile</a></li>
           <li class="navitem navlink" id="peopleTab"><a href="./people">People</a></li>
-          <li class="navitem navlink" id="emailTab"><a href="#">Email</a></li>
           <li class="navitem navlink right-float">
             <a href="#" id="login">Login</a>
           </li>
@@ -59,32 +59,31 @@
         </div> 
       </div>
     </div>
+    
     <div id="create-email-modal" class="hidden">
       <div class="modal-dialog">
 
         <div class="modal-header">
-          <h3>Formulate Your Message</h3>
+          <h3>User Options</h3>
           <button type="button" class="modal-close-button">&times;</button>
         </div>
 
         <div class="modal-body">
           <div class="tag-input-element">
-            <label for="recipient-text-input">Recipient:</label>
-            <input id="recipient-text-input"></input>
-          </div>
-          <div class="tag-input-element">
             <label for="subject-text-input">Subject:</label>
-            <input id="subject-text-input"></input>
+            <textarea id="subject-text-input"></textarea>
           </div>
           <div class="tag-input-element">
             <label for="body-text-input">Body:</label>
-            <input id="body-text-input"></input>
+            <textarea id="body-text-input"></textarea>
+          </div>
+          <div class="email">
+            <button for="emailuser" id="email-user">Email User:</button>
+          </div>
+          <div class="block">
+            <button for="blockuser" id="block-user">Block User:</button>
           </div>
         </div>
-
-        <div class="modal-footer">
-          <button type="button" class="modal-cancel-button">Send</button>
-        </div> 
       </div>
     </div>
     

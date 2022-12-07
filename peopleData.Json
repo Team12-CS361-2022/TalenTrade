@@ -1,102 +1,107 @@
-[
-    {
-        "personName":"Sokka",
-        "Specialty": "Boomerangs!",
-        "Tags":"None",
-        "Bio":"Water Tribe warrior of the Southern Water Tribe and the son of Chief Hakoda and Kya.",
-        "Email":"boomerangguy12@gmail.com",
-        "Password":"iatemomo",
-        "Id":500
+{
+    "peopleData": [
+            {
+                "personName":"Sokka",
+                "Specialty": "Boomerangs!",
+                "Tags":"None",
+                "Bio":"Water Tribe warrior of the Southern Water Tribe and the son of Chief Hakoda and Kya.",
+                "Email":"boomerangguy12@gmail.com",
+                "Password":"iatemomo",
+                "Id":500
 
-    },
-    {
-        "personName":"Elise",
-        "Specialty": "Databases",
-        "Tags":"CS340, CS261",
-        "Bio":"Motivated student, offering help to anyone who needs it!",
-        "Email":"eeee@lise.com",
-        "Password":"coff3377",
-        "Id":501
+            },
+            {
+                "personName":"Elise",
+                "Specialty": "Databases",
+                "Tags":"CS340, CS261",
+                "Bio":"Motivated student, offering help to anyone who needs it!",
+                "Email":"eeee@lise.com",
+                "Password":"coff3377",
+                "Id":501
 
-    },
-    {
-        "personName": "Darwin",
-        "Specialty": "Biology",
-        "Tags":"None",
-        "Bio":"I'd love to pass along information about the beauty of life.",
-        "Email":"darwintheexplorer@gmail.com",
-        "Password":"hmsbeagle",
-        "Id":502
+            },
+            {
+                "personName": "Darwin",
+                "Specialty": "Biology",
+                "Tags":"None",
+                "Bio":"I'd love to pass along information about the beauty of life.",
+                "Email":"darwintheexplorer@gmail.com",
+                "Password":"hmsbeagle",
+                "Id":502
 
-    },
-    {
-        "personName": "Garfield",
-        "Specialty": "Cooking",
-        "Tags":"None",
-        "Bio":"Bring lasagna.",
-        "Email":"jarbuckle@aol.com",
-        "Password":"odiesux",
-        "Id":503
+            },
+            {
+                "personName": "Garfield",
+                "Specialty": "Cooking",
+                "Tags":"None",
+                "Bio":"Bring lasagna.",
+                "Email":"hardeye@oregonstate.edu",
+                "Password":"odiesux",
+                "Id":503,
+                "blockedArray": [
+                    
+                ]
 
-    },
-    {
-        "personName": "Nikola",
-        "Specialty": "Electrical Engineering",
-        "Tags":"ECE271",
-        "Bio":"The engineer behind the modern power grid.",
-        "Email":"tesla@icloud.com",
-        "Password":"edisonwaswrong",
-        "Id":504
+            },
+            {
+                "personName": "Nikola",
+                "Specialty": "Electrical Engineering",
+                "Tags":"ECE271",
+                "Bio":"The engineer behind the modern power grid.",
+                "Email":"tesla@icloud.com",
+                "Password":"edisonwaswrong",
+                "Id":504
 
-    },
-    {
-        "personName":"Bugs Bunny",
-        "Specialty": "Physics",
-        "Tags":"None",
-        "Bio":"What's up doc?",
-        "Email":"thehare@gmail.com",
-        "Password":"carr0ts",
-        "Id":505
+            },
+            {
+                "personName":"Bugs Bunny",
+                "Specialty": "Physics",
+                "Tags":"None",
+                "Bio":"What's up doc?",
+                "Email":"thehare@gmail.com",
+                "Password":"carr0ts",
+                "Id":505
 
-    },
-    {
-        "personName":"Steve Jobs",
-        "Specialty": "Electrical Engineering",
-        "Tags":"ECE271",
-        "Bio":"Founder of Apple. Reimagining the computer.",
-        "Email":"steve@apple.com",
-        "Password":"iphone",
-        "Id":506
+            },
+            {
+                "personName":"Steve Jobs",
+                "Specialty": "Electrical Engineering",
+                "Tags":"ECE271",
+                "Bio":"Founder of Apple. Reimagining the computer.",
+                "Email":"steve@apple.com",
+                "Password":"iphone",
+                "Id":506
 
-    },
-    {
-        "personName": "Mark",
-        "Specialty": "Chemical Engineering",
-        "Tags":"None",
-        "Bio": "The explosion goes like this: boooooooooooooooooooooooooooom",
-        "Email":"markb@yahoo.com",
-        "Password":"boomboom22",
-        "Id":507
+            },
+            {
+                "personName": "Mark",
+                "Specialty": "Chemical Engineering",
+                "Tags":"None",
+                "Bio": "The explosion goes like this: boooooooooooooooooooooooooooom",
+                "Email":"markb@yahoo.com",
+                "Password":"boomboom22",
+                "Id":507
 
-    },
-    {
-        "personName": "Sadie",
-        "Specialty": "Web Developmment",
-        "Tags":"CS290, HTML, CSS",
-        "Bio":"Junior web development student. Available most days. Loves cats!",
-        "Email":"sandersen@gmail.com",
-        "Password":"w3bengr",
-        "Id":508
+            },
+            {
+                "personName": "Sadie",
+                "Specialty": "Web Developmment",
+                "Tags":"CS290, HTML, CSS",
+                "Bio":"Junior web development student. Available most days. Loves cats!",
+                "Email":"sandersen@gmail.com",
+                "Password":"w3bengr",
+                "Id":508
 
-    },
-    {
-        "personName": "Benny",
-        "Specialty": "Cybersecurity",
-        "Tags":"HTML",
-        "Bio":"Making sure you're secure. Encrypt everything!",
-        "Email":"benny@oregonstate.edu",
-        "Password":"bennybOSU",
-        "Id":509
+            },
+            {
+                "personName": "Benny",
+                "Specialty": "Cybersecurity",
+                "Tags":"HTML",
+                "Bio":"Making sure you're secure. Encrypt everything!",
+                "Email":"benny@oregonstate.edu",
+                "Password":"bennybOSU",
+                "Id":509
 
-    }
-]
+            }
+    ]
+}

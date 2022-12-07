@@ -7,6 +7,11 @@
         <input type="text" id="skillSearch" placeholder=" Search..." />
       </div>
 </div>
+
+    {{#each peoples}}
+      {{> people}}
+    {{/each}}
+    
     <div class="tagBoxTitle">Select Tags</div>
     <div class="tagBox" Id="tagBox">
     {{#unless tags}}
@@ -20,7 +25,6 @@
     {{#each tags }}
         {{> tag}}
       {{/each}}
-
 
     <button class="newTag" id="create-tag-button">+</button>
     </div>
@@ -52,13 +56,18 @@
       <h2>Trending Skills</h2>
 
       <div class="container">
-        <article id="CS361 Tutor HelpSeek Opps SeekOpps" class="skill">
+        {{#each skills}}
+          <a class="skill-link">
+          {{> skill}}
+          </a>
+        {{/each}}
+        {{!-- <article id="CS361" class="skill">
           <h3>A skill!</h3>
           <p>Could put a description or something here</p>
         </article>
-        <article id="CS290" class="skill">
-          <h3>Another skill!</h3>
-          <p>Could put a description or something here</p>
+        <article id="CS290 HelpSeek" class="skill">
+          <h3>CS290 Help</h3>
+          <p>I need help with a search function</p>
         </article>
         <article id="CS261"class="skill">
           <h3>Just to keep it going...</h3>
@@ -72,6 +81,10 @@
           <h3>Try making the window less wide!</h3>
           <p>They should wrap around :)</p>
         </article>
+        <article id="C++ Tutor" class="skill">
+          <h3>I am offering up tutor for people</h3>
+          <p>The skill I am an expert in is c++</p>
+        </article> --}}
     </div>
  </div>
     {{/unless}}

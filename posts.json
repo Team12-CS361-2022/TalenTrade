@@ -1,0 +1,46 @@
+{
+    "postArray": [
+        {
+            "title": "I need CS290 help",
+            "text": "I need help with a search function",
+            "id": "CS290 HelpSeek OSU",
+            "person": "Bugs Bunny"
+        },
+        {
+            "title": "I'm offering C++ tutoring",
+            "text": "Contact me if you need C++ help",
+            "id": "C++ Tutor",
+            "person": "Garfield"
+        },
+        {
+            "title": "I'm offering HTML job opportunty",
+            "text": "Contact me for more information",
+            "id": "HTML Opps OSU",
+            "person": "Joe"
+        },
+        {
+            "title": "I'm looking for a C++ opportunity",
+            "text": "Please reach out if you are interested in hiring",
+            "id": "C++ SeekOpp OSU",
+            "person": "Cameron"
+        },
+        {
+            "title": "I want to practice CSS",
+            "text": "Im looking for CSS opportunites",
+            "id": "CSS SeekOpp",
+            "person": "CSS Man"
+        },
+        {
+            "title": "I have taken CS261, CS340, and am well versed in Python",
+            "text": "If you need help with any of these course feel free to reach out",
+            "id": "CS261 CS340 Python Tutor",
+            "person": "Mr. CS"
+        },
+        {
+            "title": "I require help with JavaScript",
+            "text": "I am looking for a JavaScript tutor",
+            "id": "JS SeekHelp",
+            "person": "ImBadAtJS"
+        }
+    ]
+}

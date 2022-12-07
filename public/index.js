@@ -1,6 +1,7 @@
 //const nodemailer = require("nodemailer");
 //Kyle Thom
 const tagArray = [];
+var emailRecip;
 //This function creates the html for a new tag and inserts it at the start of the tag box
 function insertnewTag(Title) {
   //var numTags = document.getElementsByClassName("tag").length;
@@ -134,7 +135,8 @@ function searchSkill() {
   if (tagArray.length > 0) {
     for (let i = 0; i < skillCollection.length; i++) {
       for (let k = 0; k < tagArray.length; k++) {
-        if (skillCollection[i].id === tagArray[k].id) {
+        let goofyAhString2 = JSON.stringify(skillCollection[i].id)
+        if (goofyAhString2.includes(tagArray[k].id)) {
           if (!activeArray.includes(skillCollection[i])) {
             activeArray.push(skillCollection[i]);
           }
@@ -170,6 +172,28 @@ function tagListeners() {
   }
 }
 
+function skillListeners() {
+  var skills = document.getElementsByClassName("skill");
+  for (i = 0; i < skills.length; i++) {
+    skills[i].addEventListener("click", skillClick);
+  }
+}
+
+function skillClick() {
+  console.log(this.classList[1]);
+  var peopleCollection = document.getElementsByClassName("people hidden")
+  for(let i = 0; i < peopleCollection.length; i++)
+  {
+    if(peopleCollection[i].id === this.classList[1])
+    {
+      console.log(peopleCollection[i].textContent);
+      emailRecip = peopleCollection[i].textContent;
+      console.log(emailRecip);
+    }
+  }
+  showEmailModule()
+}
+
 //Ian Backus
 //email functions
 
@@ -190,16 +214,15 @@ function hideEmailModal() {
 
 function handleEmailSendClick(){
   //const nodemailer = require("nodemailer");
-  
-  var EmailToSendText = document.getElementById("recipient-text-input").value;
+
   var EmailSubjectText = document.getElementById("subject-text-input").value;
   var EmailBodyText = document.getElementById("body-text-input").value;
 
-  if(EmailToSendText && EmailBodyText && EmailSubjectText){
+  if(emailRecip && EmailBodyText && EmailSubjectText){
     fetch("/index/createEmail", {
       method: "POST",
       body: JSON.stringify({
-        Recipient: EmailToSendText,
+        Recipient: emailRecip,
         Subject: EmailSubjectText,
         Body: EmailBodyText,
       }),
@@ -309,6 +332,7 @@ function logInCheck() {
 window.addEventListener("DOMContentLoaded", function () {
   tagListeners();
   logInCheck();
+  skillListeners();
   //login module
   var login = document.getElementById("login");
   if (login) {
@@ -332,17 +356,28 @@ window.addEventListener("DOMContentLoaded", function () {
   if(makeEmail){
     makeEmail.addEventListener("click", showEmailModule);
   }
+
+  var sendemail = document.getElementById('email-user');
+  if(sendemail) {
+    sendemail.addEventListener('click', handleEmailSendClick)
+  }
+
+  var blockUser = document.getElementById('block-user');
+  if(blockUser){
+    blockUser.addEventListener('click', blockUser);
+  }
+
   var emailCancelButton = document.querySelector(
     "#create-email-modal .modal-close-button"
   );
   if (emailCancelButton) {
     emailCancelButton.addEventListener("click", hideEmailModal);
   }
-  var emailSendButton = document.querySelector(
-    "#create-email-modal .modal-cancel-button"
-  );
-  if (emailSendButton) {
-    emailSendButton.addEventListener("click", handleEmailSendClick);
+
+  var emailClose = document.getElementsByClassName("modal-close-button")
+  console.log(emailClose)
+  if(emailClose){
+    emailClose[0].addEventListener('click', hideEmailModal)
   }
 
   //searchbar
