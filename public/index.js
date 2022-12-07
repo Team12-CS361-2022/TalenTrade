@@ -270,10 +270,12 @@ function handleLoginAcceptClick() {
   }).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
-        for (i = 0; i < data.length; i++) {
-          if ((data[i].Email == EmailText) & (data[i].Password == PassText)) {
+        console.log()
+        for (i = 0; i < data.peopleData.length; i++) {
+          console.log()
+          if ((data.peopleData[i].Email == EmailText) & (data.peopleData[i].Password == PassText)) {
             showLoggedin(data, i);
-            setActiveUser(data[i]);
+            setActiveUser(data.peopleData[i]);
           }
         }
       });
@@ -285,7 +287,7 @@ function handleLoginAcceptClick() {
 
 function showLoggedin(data, index) {
   login = document.getElementById("login");
-  login.innerHTML = data[index].Email;
+  login.innerHTML = data.peopleData[i].Email;
   login.removeEventListener("click", showLoginModule);
   //login.addEventListener("click", showLogoutModule);
 }
@@ -294,7 +296,7 @@ function setActiveUser(data) {
   fetch("/index/setActiveUser", {
     method: "POST",
     body: JSON.stringify({
-      personName: data.personName,
+      personName: data.pepersonName,
       Specialty: data.Specialty,
       Tags: data.tags,
       Bio: data.Bio,
